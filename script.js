@@ -64,7 +64,7 @@ const errorEl = document.getElementById("errors");
 const resultEl = document.getElementById("result");
 const restartBtn = document.getElementById("restart");
 
-let timeLeft = 60;
+let timeLeft = 30;
 let timer = null;
 let errors = 0;
 let started = false;
@@ -97,7 +97,7 @@ function endTest() {
   const totalChars = typedText.length;
   const correctChars = totalChars - errors;
 
-  const timeTaken = 60 / 60; // 1 minute
+  const timeTaken = 30 / 30; 
   const wpm = Math.round((correctChars / 5) / timeTaken);
   const accuracy = totalChars === 0 ? 0 : Math.round((correctChars / totalChars) * 100);
 
@@ -128,7 +128,7 @@ inputEl.addEventListener("input", () => {
 
 // Restart
 restartBtn.addEventListener("click", () => {
-  timeLeft = 60;
+  timeLeft = 30;
   errors = 0;
   started = false;
   clearInterval(timer);
