@@ -72,8 +72,15 @@ let currentQuote = "";
 
 // Load random quote
 function loadQuote() {
+  quoteEl.innerHTML = "";
+
   currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
-  quoteEl.textContent = currentQuote;
+
+  currentQuote.split("").forEach(char => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    quoteEl.appendChild(span);
+  });
 }
 
 // Start timer
@@ -115,13 +122,25 @@ inputEl.addEventListener("input", () => {
   }
 
   const typed = inputEl.value;
+  const quoteSpans = quoteEl.querySelectorAll("span");
+
   errors = 0;
 
-  for (let i = 0; i < typed.length; i++) {
-    if (typed[i] !== currentQuote[i]) {
+  quoteSpans.forEach((span, index) => {
+    const typedChar = typed[index];
+
+    span.classList.remove("correct", "incorrect", "active");
+
+    if (typedChar == null) {
+      // Not typed yet
+      span.classList.add("active");
+    } else if (typedChar === span.textContent) {
+      span.classList.add("correct");
+    } else {
+      span.classList.add("incorrect");
       errors++;
     }
-  }
+  });
 
   errorEl.textContent = errors;
 });
