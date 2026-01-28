@@ -97,7 +97,7 @@ function endTest() {
   const totalChars = typedText.length;
   const correctChars = totalChars - errors;
 
-  const timeTaken = 30 / 30; 
+  const timeTaken = 30 / 60; 
   const wpm = Math.round((correctChars / 5) / timeTaken);
   const accuracy = totalChars === 0 ? 0 : Math.round((correctChars / totalChars) * 100);
 
