@@ -29,6 +29,7 @@ h1 {
   margin-bottom: 15px;
   border-radius: 5px;
   min-height: 80px;
+  font-weight:normal;
 }
 
 textarea {
@@ -72,6 +73,3 @@ button:hover {
   color: #ef4444; /* red */
 }
 
-.active {
-  text-decoration: underline;
-}
